@@ -27,54 +27,54 @@ const agents = [
 
 export default function Agents() {
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-6 lg:p-8">
       <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
+        <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-4 sm:space-y-0 pb-4">
           <div>
-            <div className="flex items-center gap-3 mb-2">
-              <Badge variant="outline" className="gap-1">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
+              <Badge variant="outline" className="gap-1 text-xs">
                 <Copy className="h-3 w-3" />
                 0x5BC...0c0
               </Badge>
-              <Badge variant="secondary">Agent</Badge>
+              <Badge variant="secondary" className="text-xs">Agent</Badge>
             </div>
-            <CardTitle className="text-2xl">Agents</CardTitle>
+            <CardTitle className="text-xl sm:text-2xl">Agents</CardTitle>
           </div>
-          <Button className="gap-2">
+          <Button className="gap-2 w-full sm:w-auto">
             <UserPlus className="h-4 w-4" />
             Add Agent
           </Button>
         </CardHeader>
-        <CardContent>
-          <div className="border rounded-lg overflow-hidden">
+        <CardContent className="p-0 sm:p-6">
+          <div className="border rounded-lg overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Actions</TableHead>
-                  <TableHead>Permission</TableHead>
-                  <TableHead>E-Mail</TableHead>
-                  <TableHead>Wallet</TableHead>
+                  <TableHead className="min-w-[120px]">Actions</TableHead>
+                  <TableHead className="min-w-[100px]">Permission</TableHead>
+                  <TableHead className="min-w-[180px]">E-Mail</TableHead>
+                  <TableHead className="min-w-[250px]">Wallet</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {agents.map((agent, index) => (
                   <TableRow key={index}>
                     <TableCell>
-                      <Button variant="ghost" size="sm" className="text-destructive hover:text-destructive hover:bg-destructive/10">
+                      <Button variant="ghost" size="sm" className="text-destructive hover:text-destructive hover:bg-destructive/10 whitespace-nowrap">
                         <Trash2 className="h-4 w-4 mr-1" />
                         Remove
                       </Button>
                     </TableCell>
                     <TableCell>
-                      <Badge variant={agent.permission === "Owner" ? "default" : "secondary"}>
+                      <Badge variant={agent.permission === "Owner" ? "default" : "secondary"} className="whitespace-nowrap">
                         {agent.permission}
                       </Badge>
                     </TableCell>
                     <TableCell className="font-medium">{agent.email}</TableCell>
                     <TableCell>
                       <div className="flex items-center gap-2">
-                        <code className="text-xs text-primary">{agent.wallet}</code>
-                        <Button variant="ghost" size="icon" className="h-7 w-7">
+                        <code className="text-xs text-primary whitespace-nowrap">{agent.wallet}</code>
+                        <Button variant="ghost" size="icon" className="h-7 w-7 flex-shrink-0">
                           <Copy className="h-3 w-3" />
                         </Button>
                       </div>
