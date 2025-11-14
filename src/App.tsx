@@ -7,6 +7,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import Dashboard from "./pages/Dashboard";
 import Agents from "./pages/Agents";
+import TokenActions from "./pages/TokenActions";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,7 +29,7 @@ const App = () => (
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/agents" element={<Agents />} />
-                  <Route path="/token-actions" element={<Dashboard />} />
+                  <Route path="/token-actions" element={<TokenActions />} />
                   <Route path="/transactions" element={<Dashboard />} />
                   <Route path="/requests" element={<Dashboard />} />
                   <Route path="/documents" element={<Dashboard />} />
