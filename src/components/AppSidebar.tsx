@@ -1,4 +1,4 @@
-import { LayoutDashboard, Coins, Users, FileText, TrendingUp, BarChart3, Building2 } from "lucide-react";
+import { LayoutDashboard, Coins, Users, FileText, TrendingUp, BarChart3, Building2, Settings } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import {
   Sidebar,
@@ -25,6 +25,7 @@ const mainItems = [
     { title: "Requests", url: "/investors/requests" },
   ]},
   { title: "Transactions", url: "/transactions", icon: FileText },
+  { title: "Settings", url: "/settings", icon: Settings },
   { title: "Primary Market", url: "/primary-market", icon: TrendingUp },
   { title: "Secondary Market", url: "/secondary-market", icon: BarChart3 },
 ];

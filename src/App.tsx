@@ -13,6 +13,7 @@ import InvestorList from "./pages/InvestorList";
 import Candidates from "./pages/Candidates";
 import PositionReports from "./pages/PositionReports";
 import Requests from "./pages/Requests";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
                   <Route path="/investors/candidates" element={<Candidates />} />
                   <Route path="/investors/position-reports" element={<PositionReports />} />
                   <Route path="/investors/requests" element={<Requests />} />
+                  <Route path="/settings" element={<Settings />} />
                   <Route path="/primary-market" element={<Dashboard />} />
                   <Route path="/secondary-market" element={<Dashboard />} />
                   <Route path="*" element={<NotFound />} />
