@@ -8,6 +8,11 @@ import { AppSidebar } from "@/components/AppSidebar";
 import Dashboard from "./pages/Dashboard";
 import Agents from "./pages/Agents";
 import TokenActions from "./pages/TokenActions";
+import Transactions from "./pages/Transactions";
+import InvestorList from "./pages/InvestorList";
+import Candidates from "./pages/Candidates";
+import PositionReports from "./pages/PositionReports";
+import Requests from "./pages/Requests";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,10 +35,11 @@ const App = () => (
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/agents" element={<Agents />} />
                   <Route path="/token-actions" element={<TokenActions />} />
-                  <Route path="/transactions" element={<Dashboard />} />
-                  <Route path="/requests" element={<Dashboard />} />
-                  <Route path="/documents" element={<Dashboard />} />
-                  <Route path="/investors" element={<Dashboard />} />
+                  <Route path="/transactions" element={<Transactions />} />
+                  <Route path="/investors" element={<InvestorList />} />
+                  <Route path="/investors/candidates" element={<Candidates />} />
+                  <Route path="/investors/position-reports" element={<PositionReports />} />
+                  <Route path="/investors/requests" element={<Requests />} />
                   <Route path="/primary-market" element={<Dashboard />} />
                   <Route path="/secondary-market" element={<Dashboard />} />
                   <Route path="*" element={<NotFound />} />
