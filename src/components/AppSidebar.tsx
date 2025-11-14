@@ -17,11 +17,14 @@ const mainItems = [
   { title: "Token", url: "#", icon: Coins, subItems: [
     { title: "Token actions", url: "/token-actions" },
     { title: "Agents", url: "/agents" },
-    { title: "Transactions", url: "/transactions" },
-    { title: "Requests", url: "/requests" },
-    { title: "Documents", url: "/documents" },
   ]},
-  { title: "Investors", url: "/investors", icon: Users },
+  { title: "Investors", url: "#", icon: Users, subItems: [
+    { title: "Investor List", url: "/investors" },
+    { title: "Candidates", url: "/investors/candidates" },
+    { title: "Position Reports", url: "/investors/position-reports" },
+    { title: "Requests", url: "/investors/requests" },
+  ]},
+  { title: "Transactions", url: "/transactions", icon: FileText },
   { title: "Primary Market", url: "/primary-market", icon: TrendingUp },
   { title: "Secondary Market", url: "/secondary-market", icon: BarChart3 },
 ];
