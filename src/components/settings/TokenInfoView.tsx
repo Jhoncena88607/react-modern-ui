@@ -1,20 +1,13 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Upload } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-interface TokenInfoViewProps {
-  onBack: () => void;
-}
-
-export const TokenInfoView = ({ onBack }: TokenInfoViewProps) => {
+export const TokenInfoView = () => {
   return (
     <div className="space-y-6">
-      <Button variant="ghost" onClick={onBack}>
-        ← Back to Settings
-      </Button>
       <div>
         <h1 className="text-2xl font-semibold text-foreground mb-2">Token info</h1>
       </div>

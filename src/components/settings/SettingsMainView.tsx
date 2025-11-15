@@ -1,8 +1,8 @@
-import { Coins, Settings as SettingsIcon, CheckCircle, Globe, Scale, ArrowLeftRight } from "lucide-react";
+import { Coins, Settings as SettingsIcon, CheckCircle, Globe, Scale, ArrowLeftRight, FileCode } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-type SettingView = "main" | "token-info" | "token-ownership" | "identity-eligibility" | "jurisdictions" | "supply-rules" | "transfer-rules";
+type SettingView = "main" | "token-info" | "token-ownership" | "identity-eligibility" | "jurisdictions" | "supply-rules" | "transfer-rules" | "custom-rules";
 
 interface SettingsOption {
   id: string;
@@ -16,6 +16,7 @@ interface SettingsOption {
 
 interface SettingsMainViewProps {
   onViewChange: (view: SettingView) => void;
+  currentView: SettingView;
   identityEnabled: boolean;
   setIdentityEnabled: (value: boolean) => void;
   jurisdictionsEnabled: boolean;
@@ -24,10 +25,13 @@ interface SettingsMainViewProps {
   setSupplyRulesEnabled: (value: boolean) => void;
   transferRulesEnabled: boolean;
   setTransferRulesEnabled: (value: boolean) => void;
+  customRulesEnabled: boolean;
+  setCustomRulesEnabled: (value: boolean) => void;
 }
 
 export const SettingsMainView = ({
   onViewChange,
+  currentView,
   identityEnabled,
   setIdentityEnabled,
   jurisdictionsEnabled,
@@ -36,6 +40,8 @@ export const SettingsMainView = ({
   setSupplyRulesEnabled,
   transferRulesEnabled,
   setTransferRulesEnabled,
+  customRulesEnabled,
+  setCustomRulesEnabled,
 }: SettingsMainViewProps) => {
   const settingsOptions: SettingsOption[] = [
     {
@@ -88,6 +94,15 @@ export const SettingsMainView = ({
       toggle: transferRulesEnabled,
       onToggle: setTransferRulesEnabled,
     },
+    {
+      id: "custom-rules",
+      title: "Custom Rules",
+      description: "Add one or more custom compliance smart Contracts.",
+      icon: FileCode,
+      view: "custom-rules" as SettingView,
+      toggle: customRulesEnabled,
+      onToggle: setCustomRulesEnabled,
+    },
   ];
 
   return (
@@ -95,11 +110,13 @@ export const SettingsMainView = ({
       <div>
         <h1 className="text-2xl font-semibold text-foreground mb-2">Settings</h1>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4">
         {settingsOptions.map((option) => (
           <Card 
             key={option.id} 
-            className="cursor-pointer hover:border-primary/50 transition-colors"
+            className={`cursor-pointer transition-colors ${
+              currentView === option.view ? "border-primary bg-primary/5" : "hover:border-primary/50"
+            }`}
             onClick={() => option.toggle === undefined && onViewChange(option.view)}
           >
             <CardContent className="p-6">
