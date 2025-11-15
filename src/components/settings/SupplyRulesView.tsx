@@ -6,11 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { CheckCircle } from "lucide-react";
 
-interface SupplyRulesViewProps {
-  onBack: () => void;
-}
-
-export const SupplyRulesView = ({ onBack }: SupplyRulesViewProps) => {
+export const SupplyRulesView = () => {
   const [totalSupplyEnabled, setTotalSupplyEnabled] = useState(true);
   const [totalSupplyLimit, setTotalSupplyLimit] = useState("100000");
   const [balanceLimitEnabled, setBalanceLimitEnabled] = useState(true);
@@ -18,9 +14,6 @@ export const SupplyRulesView = ({ onBack }: SupplyRulesViewProps) => {
 
   return (
     <div className="space-y-6">
-      <Button variant="ghost" onClick={onBack}>
-        ← Back to Settings
-      </Button>
       <div>
         <h1 className="text-2xl font-semibold text-foreground mb-2">Supply rules</h1>
       </div>

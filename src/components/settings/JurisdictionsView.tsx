@@ -1,24 +1,16 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CheckCircle, Globe } from "lucide-react";
 
-interface JurisdictionsViewProps {
-  onBack: () => void;
-}
-
-export const JurisdictionsView = ({ onBack }: JurisdictionsViewProps) => {
+export const JurisdictionsView = () => {
   const [allCountriesChecked, setAllCountriesChecked] = useState(true);
   const [europeChecked, setEuropeChecked] = useState(true);
   const [asiaChecked, setAsiaChecked] = useState(true);
 
   return (
     <div className="space-y-6">
-      <Button variant="ghost" onClick={onBack}>
-        ← Back to Settings
-      </Button>
       <div>
         <h1 className="text-2xl font-semibold text-foreground mb-2">Jurisdictions</h1>
       </div>

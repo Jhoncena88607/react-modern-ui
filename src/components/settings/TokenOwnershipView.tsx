@@ -3,16 +3,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Copy } from "lucide-react";
 
-interface TokenOwnershipViewProps {
-  onBack: () => void;
-}
-
-export const TokenOwnershipView = ({ onBack }: TokenOwnershipViewProps) => {
+export const TokenOwnershipView = () => {
   return (
     <div className="space-y-6">
-      <Button variant="ghost" onClick={onBack}>
-        ← Back to Settings
-      </Button>
       <div>
         <h1 className="text-2xl font-semibold text-foreground mb-2">Token ownership</h1>
       </div>

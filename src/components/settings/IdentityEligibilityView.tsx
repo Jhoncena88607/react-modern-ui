@@ -3,16 +3,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Plus, Pencil, Trash2 } from "lucide-react";
 
-interface IdentityEligibilityViewProps {
-  onBack: () => void;
-}
-
-export const IdentityEligibilityView = ({ onBack }: IdentityEligibilityViewProps) => {
+export const IdentityEligibilityView = () => {
   return (
     <div className="space-y-6">
-      <Button variant="ghost" onClick={onBack}>
-        ← Back to Settings
-      </Button>
       <div>
         <h1 className="text-2xl font-semibold text-foreground mb-2">Identity eligibility</h1>
       </div>
