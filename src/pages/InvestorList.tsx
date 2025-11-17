@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Filter, ArrowRight, Pause, Copy, User, Building } from "lucide-react";
+import { Filter, Copy, User, Building, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
@@ -32,21 +31,8 @@ const mockInvestors: Investor[] = [
 
 export default function InvestorList() {
   const navigate = useNavigate();
-  const [selectedInvestors, setSelectedInvestors] = useState<string[]>([]);
   const [itemsPerPage, setItemsPerPage] = useState("50");
   const [currentPage, setCurrentPage] = useState(1);
-
-  const toggleInvestor = (id: string) => {
-    setSelectedInvestors((prev) =>
-      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
-    );
-  };
-
-  const toggleAll = () => {
-    setSelectedInvestors((prev) =>
-      prev.length === mockInvestors.length ? [] : mockInvestors.map((i) => i.id)
-    );
-  };
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
@@ -80,19 +66,6 @@ export default function InvestorList() {
           <Filter className="w-4 h-4 mr-2" />
           Filters
         </Button>
-        
-        {selectedInvestors.length > 0 && (
-          <div className="flex flex-wrap items-center gap-2">
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-              <span className="mr-2">Token Actions({selectedInvestors.length})</span>
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-            <Button variant="outline" size="sm">
-              <Pause className="w-4 h-4 mr-2" />
-              Pause token
-            </Button>
-          </div>
-        )}
       </div>
 
       {/* Table */}
@@ -101,12 +74,7 @@ export default function InvestorList() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className="w-[50px]">
-                  <Checkbox
-                    checked={selectedInvestors.length === mockInvestors.length}
-                    onCheckedChange={toggleAll}
-                  />
-                </TableHead>
+                <TableHead className="w-[50px]">Actions</TableHead>
                 <TableHead className="min-w-[120px]">Status</TableHead>
                 <TableHead className="min-w-[150px]">Investor</TableHead>
                 <TableHead className="min-w-[150px]">E-Mail</TableHead>
@@ -120,14 +88,17 @@ export default function InvestorList() {
               {mockInvestors.map((investor) => (
                   <TableRow 
                     key={investor.id} 
-                    className="cursor-pointer hover:bg-muted/50"
-                    onClick={() => navigate(`/investors/${investor.id}`)}
+                    className="hover:bg-muted/50"
                   >
                   <TableCell>
-                    <Checkbox
-                      checked={selectedInvestors.includes(investor.id)}
-                      onCheckedChange={() => toggleInvestor(investor.id)}
-                    />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => navigate(`/investors/${investor.id}`)}
+                      className="h-8 w-8 p-0"
+                    >
+                      <Eye className="w-4 h-4" />
+                    </Button>
                   </TableCell>
                   <TableCell>
                     {getStatusBadge(investor.status)}
