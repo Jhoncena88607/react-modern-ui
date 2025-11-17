@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Filter, ArrowRight, Pause, Copy, User, Building } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -30,6 +31,7 @@ const mockInvestors: Investor[] = [
 ];
 
 export default function InvestorList() {
+  const navigate = useNavigate();
   const [selectedInvestors, setSelectedInvestors] = useState<string[]>([]);
   const [itemsPerPage, setItemsPerPage] = useState("50");
   const [currentPage, setCurrentPage] = useState(1);
@@ -116,7 +118,11 @@ export default function InvestorList() {
             </TableHeader>
             <TableBody>
               {mockInvestors.map((investor) => (
-                <TableRow key={investor.id}>
+                  <TableRow 
+                    key={investor.id} 
+                    className="cursor-pointer hover:bg-muted/50"
+                    onClick={() => navigate(`/investors/${investor.id}`)}
+                  >
                   <TableCell>
                     <Checkbox
                       checked={selectedInvestors.includes(investor.id)}

@@ -10,6 +10,7 @@ import Agents from "./pages/Agents";
 import TokenActions from "./pages/TokenActions";
 import Transactions from "./pages/Transactions";
 import InvestorList from "./pages/InvestorList";
+import InvestorProfile from "./pages/InvestorProfile";
 import Candidates from "./pages/Candidates";
 import PositionReports from "./pages/PositionReports";
 import Requests from "./pages/Requests";
@@ -38,6 +39,7 @@ const App = () => (
                   <Route path="/token-actions" element={<TokenActions />} />
                   <Route path="/transactions" element={<Transactions />} />
                   <Route path="/investors" element={<InvestorList />} />
+                  <Route path="/investors/:id" element={<InvestorProfile />} />
                   <Route path="/investors/candidates" element={<Candidates />} />
                   <Route path="/investors/position-reports" element={<PositionReports />} />
                   <Route path="/investors/requests" element={<Requests />} />
