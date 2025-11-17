@@ -25,9 +25,12 @@ const mainItems = [
     { title: "Requests", url: "/investors/requests" },
   ]},
   { title: "Transactions", url: "/transactions", icon: FileText },
-  { title: "Settings", url: "/settings", icon: Settings },
-  { title: "Primary Market", url: "/primary-market", icon: TrendingUp },
+  { title: "Primary Market", url: "#", icon: TrendingUp, subItems: [
+    { title: "Orders", url: "/primary-market/orders" },
+    { title: "Subscriptions", url: "/primary-market/subscriptions" },
+  ]},
   { title: "Secondary Market", url: "/secondary-market", icon: BarChart3 },
+  { title: "Settings", url: "/settings", icon: Settings },
 ];
 
 export function AppSidebar() {
