@@ -14,8 +14,11 @@ import InvestorProfile from "./pages/InvestorProfile";
 import Candidates from "./pages/Candidates";
 import PositionReports from "./pages/PositionReports";
 import Requests from "./pages/Requests";
-import PrimaryMarketOrders from "./pages/PrimaryMarketOrders";
-import PrimaryMarketSubscriptions from "./pages/PrimaryMarketSubscriptions";
+import PrimaryMarketSubscriptionOrders from "./pages/PrimaryMarketSubscriptionOrders";
+import PrimaryMarketRedemptionOrders from "./pages/PrimaryMarketRedemptionOrders";
+import SecondaryMarketBillboardSettings from "./pages/SecondaryMarketBillboardSettings";
+import SecondaryMarketBillboardOffers from "./pages/SecondaryMarketBillboardOffers";
+import SecondaryMarketCEX from "./pages/SecondaryMarketCEX";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
@@ -45,11 +48,12 @@ const App = () => (
                   <Route path="/investors/candidates" element={<Candidates />} />
                   <Route path="/investors/position-reports" element={<PositionReports />} />
                   <Route path="/investors/requests" element={<Requests />} />
-                  <Route path="/primary-market/orders" element={<PrimaryMarketOrders />} />
-                  <Route path="/primary-market/subscriptions" element={<PrimaryMarketSubscriptions />} />
+                  <Route path="/primary-market/subscription-orders" element={<PrimaryMarketSubscriptionOrders />} />
+                  <Route path="/primary-market/redemption-orders" element={<PrimaryMarketRedemptionOrders />} />
+                  <Route path="/secondary-market/billboard-settings" element={<SecondaryMarketBillboardSettings />} />
+                  <Route path="/secondary-market/billboard-offers" element={<SecondaryMarketBillboardOffers />} />
+                  <Route path="/secondary-market/cex" element={<SecondaryMarketCEX />} />
                   <Route path="/settings" element={<Settings />} />
-                  <Route path="/primary-market" element={<Dashboard />} />
-                  <Route path="/secondary-market" element={<Dashboard />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>
