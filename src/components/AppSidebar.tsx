@@ -26,10 +26,14 @@ const mainItems = [
   ]},
   { title: "Transactions", url: "/transactions", icon: FileText },
   { title: "Primary Market", url: "#", icon: TrendingUp, subItems: [
-    { title: "Orders", url: "/primary-market/orders" },
-    { title: "Subscriptions", url: "/primary-market/subscriptions" },
+    { title: "Subscription Orders", url: "/primary-market/subscription-orders" },
+    { title: "Redemption Orders", url: "/primary-market/redemption-orders" },
   ]},
-  { title: "Secondary Market", url: "/secondary-market", icon: BarChart3 },
+  { title: "Secondary Market", url: "#", icon: BarChart3, subItems: [
+    { title: "Billboard Settings", url: "/secondary-market/billboard-settings" },
+    { title: "Billboard Offers", url: "/secondary-market/billboard-offers" },
+    { title: "CEX", url: "/secondary-market/cex" },
+  ]},
   { title: "Settings", url: "/settings", icon: Settings },
 ];
 
